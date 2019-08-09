@@ -10,5 +10,10 @@ namespace AzureFunctions.Todo.DataContext
         { }
 
         public DbSet<Todos> Todos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Todos>().HasQueryFilter(x => !x.IsDeleted);
+        }
     }
 }

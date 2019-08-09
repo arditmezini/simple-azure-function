@@ -6,17 +6,17 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureFunctions.Todo
 {
-    public class ResetTodos
+    public class RemoveTodos
     {
         private readonly TodoContext _context;
 
-        public ResetTodos(TodoContext context)
+        public RemoveTodos(TodoContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// At midnight set all daily todos completed
+        /// At midnight delete all todos
         /// </summary>
         /// <param name="myTimer"></param>
         /// <param name="log"></param>
@@ -27,7 +27,7 @@ namespace AzureFunctions.Todo
             var todos = await _context.Todos.ToListAsync();
             foreach (var item in todos)
             {
-                item.IsCompleted = true;
+                item.IsDeleted = true;
             }
             await _context.SaveChangesAsync();
         }
