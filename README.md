@@ -7,4 +7,4 @@ This project includes a TodoApi class (HTTP Function) which has 5 functions:
 	4. UpdateTodo	| PUT	 | http://localhost:7071/api/todo/{id})
 	5. DeleteTodo	| DELETE | http://localhost:7071/api/todo/{id})
 </pre>
-The ResetTodos class (Timer Function) runs at midnight and sets all todo as completed.
+The ResetTodos class (Timer Function) runs at midnight and sets all todo as deleted.
